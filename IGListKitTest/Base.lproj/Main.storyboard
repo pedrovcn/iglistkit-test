@@ -35,6 +35,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="5y9-rA-L4n">
+                        <barButtonItem key="leftBarButtonItem" systemItem="pause" id="P72-Uw-mU8">
+                            <connections>
+                                <action selector="changeViewMode:" destination="BYZ-38-t0r" id="QHb-9e-cmh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bCD-OE-oVT">
                             <connections>
                                 <action selector="addCell:" destination="BYZ-38-t0r" id="Y2G-z3-ezd"/>

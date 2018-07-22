@@ -12,11 +12,11 @@ import IGListKit
 class TextSectionController: ListSectionController {
     
     fileprivate var object: Any?
+    var mode: CellViewMode!
     
-    override init() {
-        super.init()
-        minimumLineSpacing = 1
-        minimumInteritemSpacing = 1
+    convenience init(mode: CellViewMode) {
+        self.init()
+        self.mode = mode
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -33,8 +33,13 @@ class TextSectionController: ListSectionController {
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
+        if mode == CellViewMode.grid {
+            let width = collectionContext?.containerSize.width ?? 0
+            let itemSize = floor(width / 2)
+            return CGSize(width: itemSize, height: itemSize)
+        }
+        
         let width = collectionContext?.containerSize.width ?? 0
-        let itemSize = floor(width / 2)
-        return CGSize(width: itemSize, height: itemSize)
+        return CGSize(width: width, height: 80)
     }
 }
